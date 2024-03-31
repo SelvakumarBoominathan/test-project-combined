@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 //   return name;
 // };
 
-const Student = ({ id, image, age, name }) => {
+const Student = ({ id, image, age, name, isSenior }) => {
   console.log(image);
 
-  if (id)
+  if (id) {
     return (
-      <>
+      <div>
         <img
           alt={name || "No Name"}
           src={
@@ -22,6 +22,9 @@ const Student = ({ id, image, age, name }) => {
           <span
             style={{
               color: "green",
+              borderWidth: "3px",
+              borderColor: "yellow",
+              borderStyle: "solid",
             }}
           >
             {name || "No Name"}
@@ -29,10 +32,19 @@ const Student = ({ id, image, age, name }) => {
         </h1>
         <h2>Id: {id || "No Id"}</h2>
         <h2>Age: {age || "--"}</h2>
-      </>
+        {/* {isSenior && <i className="fa-solid fa-star"></i>} */}
+        {isSenior ? (
+          <i className="fa-solid fa-star"></i>
+        ) : (
+          <i className="fa-solid fa-heart"></i>
+        )}
+        {/* <label htmlFor="name">Name</label>
+        <input type="text" id="name" /> */}
+      </div>
     );
+  }
 
-  return "";
+  return <></>;
 };
 
 Student.propTypes = {
@@ -40,6 +52,7 @@ Student.propTypes = {
   id: PropTypes.number,
   image: PropTypes.string,
   age: PropTypes.number,
+  isSenior: PropTypes.bool,
 };
 
 // const Student = (props) => {
