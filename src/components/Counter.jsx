@@ -1,10 +1,11 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-const Counter = () => {
+const Counter = ({ initialValue = 0 }) => {
   // let count = 0;
 
   // State Hook Syntax
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(initialValue);
 
   const handleClick = () => {
     // count = count + 1;
@@ -24,6 +25,10 @@ const Counter = () => {
       <button onClick={handleClick}>Click Me to Inc the Counter</button>
     </>
   );
+};
+
+Counter.propTypes = {
+  initialValue: PropTypes.number,
 };
 
 export default Counter;

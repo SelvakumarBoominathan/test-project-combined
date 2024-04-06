@@ -21,17 +21,4 @@ const data = [
   },
 ];
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <App />
-    {/* <Student
-      name={data[0].name}
-      image={data[0].imageUrl}
-      id={data[0].id}
-      age={data[0].age}
-    /> */}
-    {/* {data.map((stu) => (
-      <Student {...stu} image={stu.imageUrl} key={stu.id} />
-    ))} */}
-  </React.StrictMode>
-);
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);

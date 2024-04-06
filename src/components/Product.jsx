@@ -4,7 +4,22 @@ import styles from "./Product.module.css";
 
 // Product Component
 
-const Product = ({ title, image, price, bestSeller, description }) => {
+const Product = ({
+  title,
+  image,
+  price,
+  bestSeller = false,
+  description,
+  addToCart,
+}) => {
+  const handleClick = () => {
+    alert(`clicked ${title}`);
+  };
+
+  const handleCart = () => {
+    addToCart(title);
+  };
+
   return (
     <div className={styles["root"]}>
       <img src={image} alt={title} className={styles["prodImage"]} />
@@ -20,6 +35,7 @@ const Product = ({ title, image, price, bestSeller, description }) => {
         />
       )}
       <p>{description}</p>
+      <button onClick={handleCart}>Add To Cart</button>
     </div>
   );
 };
@@ -31,6 +47,7 @@ Product.propTypes = {
   price: PropTypes.number,
   bestSeller: PropTypes.bool,
   description: PropTypes.string,
+  addToCart: PropTypes.func,
 };
 
 export default Product;

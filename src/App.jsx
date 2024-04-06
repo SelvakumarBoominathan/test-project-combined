@@ -1,9 +1,12 @@
+import { useState } from "react";
 import "./App.css";
 import Student from "./Student.jsx";
 import Card from "./components/Card.jsx";
 import Counter from "./components/Counter.jsx";
 import Product from "./components/Product.jsx";
 import add, { mul as multi, sub } from "./utils.js";
+import LifeCycle from "./components/LifeCycle.jsx";
+import LifeCycleHook from "./components/LifeCycleHook.jsx";
 
 const data = [
   {
@@ -127,15 +130,62 @@ const cardData = [
 
 function App() {
   const mentorName = "Sanjay Saravanan";
+  const val = 999;
+
+  const [mountComponent, setMountVal] = useState(false);
+
+  // Cart State
+  const [cartCount, setCartCount] = useState(0);
+
+  const [cart, setCart] = useState([]);
+
+  const handleMount = (e) => {
+    console.log(e);
+    setMountVal(true);
+  };
+
+  const handleUnmount = () => {
+    setMountVal(false);
+  };
+
+  const addToCart = (prodName) => {
+    console.log("line 150");
+    // display added <prod-name> to the cart
+    // filter the prod data using the above initial data
+    const prod = prodData.find(({ title }) => title === prodName);
+    setCart([...cart, prod]);
+  };
 
   return (
     <>
-      {console.log("Rendring")}
+      {console.log("Rendring", cart)}
+      <button
+        style={{ position: "absolute", top: 10, right: 10, fontSize: 32 }}
+        onClick={() => {}}
+      >
+        {cart.length}
+        <span
+          style={{
+            position: "absolute",
+            border: "1px solid",
+            top: "75px",
+            left: "0px",
+          }}
+        >
+          {cart.length === 0 ? (
+            "No Products"
+          ) : (
+            <div>{cart.map(({ title }) => title)}</div>
+          )}
+        </span>
+      </button>
       <h1 className="bg-primary">Weekend Tamil Batch</h1>
       <h1>Mentor: {mentorName}</h1>
       <h1>Batches: {sub(1, 2)}</h1>
       <h1>Batches: {multi(1, 2)}</h1>
       <h1>Batches: {add(1, 2)}</h1>
+      <button onClick={handleMount}>Click To Mount</button>
+      <button onClick={handleUnmount}>Click To Unmount </button>
       {/* {Student("Kumaravel")} */}
       {/* <Student
         name={data[0].name}
@@ -180,12 +230,15 @@ function App() {
         return <Student {...stu} image={stu.imageUrl} key={stu.id} />;
       })} */}
       {prodData.map((pd) => (
-        <Product {...pd} key={pd.id} />
+        // passing a function as prop ( addToCart )
+        <Product {...pd} addToCart={addToCart} key={pd.id} />
       ))}
-      <Counter />
+      <Counter initialValue={val} />
       {cardData.map((cd) => (
         <Card {...cd} key={cd.title} />
       ))}
+      {/* {mountComponent && <LifeCycle />} */}
+      {/* {mountComponent && <LifeCycleHook />} */}
     </>
   );
 }
