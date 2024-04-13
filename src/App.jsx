@@ -7,6 +7,9 @@ import Product from "./components/Product.jsx";
 import add, { mul as multi, sub } from "./utils.js";
 import LifeCycle from "./components/LifeCycle.jsx";
 import LifeCycleHook from "./components/LifeCycleHook.jsx";
+// import Parent from "./components/PropDrilling.jsx";\
+// import Parent from "./components/PropDrilling-Optimized.jsx";
+import Parent from "./components/Context.jsx";
 
 const data = [
   {
@@ -184,8 +187,8 @@ function App() {
       <h1>Batches: {sub(1, 2)}</h1>
       <h1>Batches: {multi(1, 2)}</h1>
       <h1>Batches: {add(1, 2)}</h1>
-      <button onClick={handleMount}>Click To Mount</button>
-      <button onClick={handleUnmount}>Click To Unmount </button>
+      {/* <button onClick={handleMount}>Click To Mount</button>
+      <button onClick={handleUnmount}>Click To Unmount </button> */}
       {/* {Student("Kumaravel")} */}
       {/* <Student
         name={data[0].name}
@@ -229,16 +232,17 @@ function App() {
       {/* {data.map((stu) => {
         return <Student {...stu} image={stu.imageUrl} key={stu.id} />;
       })} */}
-      {prodData.map((pd) => (
+      {/* {prodData.map((pd) => (
         // passing a function as prop ( addToCart )
         <Product {...pd} addToCart={addToCart} key={pd.id} />
-      ))}
-      <Counter initialValue={val} />
+      ))} */}
+      {/* <Counter initialValue={val} />
       {cardData.map((cd) => (
         <Card {...cd} key={cd.title} />
-      ))}
+      ))} */}
       {/* {mountComponent && <LifeCycle />} */}
       {/* {mountComponent && <LifeCycleHook />} */}
+      <Parent />
     </>
   );
 }
