@@ -10,6 +10,7 @@ import LifeCycleHook from "./components/LifeCycleHook.jsx";
 // import Parent from "./components/PropDrilling.jsx";\
 // import Parent from "./components/PropDrilling-Optimized.jsx";
 import Parent from "./components/Context.jsx";
+import ReactForm from "./components/ReactForm.jsx";
 
 const data = [
   {
@@ -162,7 +163,7 @@ function App() {
   return (
     <>
       {console.log("Rendring", cart)}
-      <button
+      {/* <button
         style={{ position: "absolute", top: 10, right: 10, fontSize: 32 }}
         onClick={() => {}}
       >
@@ -181,12 +182,12 @@ function App() {
             <div>{cart.map(({ title }) => title)}</div>
           )}
         </span>
-      </button>
-      <h1 className="bg-primary">Weekend Tamil Batch</h1>
+      </button> */}
+      {/* <h1 className="bg-primary">Weekend Tamil Batch</h1>
       <h1>Mentor: {mentorName}</h1>
       <h1>Batches: {sub(1, 2)}</h1>
       <h1>Batches: {multi(1, 2)}</h1>
-      <h1>Batches: {add(1, 2)}</h1>
+      <h1>Batches: {add(1, 2)}</h1> */}
       {/* <button onClick={handleMount}>Click To Mount</button>
       <button onClick={handleUnmount}>Click To Unmount </button> */}
       {/* {Student("Kumaravel")} */}
@@ -242,7 +243,8 @@ function App() {
       ))} */}
       {/* {mountComponent && <LifeCycle />} */}
       {/* {mountComponent && <LifeCycleHook />} */}
-      <Parent />
+      {/* <Parent /> */}
+      <ReactForm />
     </>
   );
 }
