@@ -11,6 +11,8 @@ import LifeCycleHook from "./components/LifeCycleHook.jsx";
 // import Parent from "./components/PropDrilling-Optimized.jsx";
 import Parent from "./components/Context.jsx";
 import ReactForm from "./components/ReactForm.jsx";
+import Reference from "./components/Reference.jsx";
+import ReducerComp from "./components/Reducer.jsx";
 
 const data = [
   {
@@ -244,7 +246,9 @@ function App() {
       {/* {mountComponent && <LifeCycle />} */}
       {/* {mountComponent && <LifeCycleHook />} */}
       {/* <Parent /> */}
-      <ReactForm />
+      {/* <ReactForm /> */}
+      {/* <Reference /> */}
+      <ReducerComp />
     </>
   );
 }
